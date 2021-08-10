@@ -2,6 +2,9 @@ import boto3
 import json
 import logging
 from collections import defaultdict
+from datetime import date
+from boto3.dynamodb.conditions import Key
+
 
 # create a DynamoDB client using boto3. The boto3 library will automatically
 # use the credentials associated with our ECS task role to communicate with
@@ -21,7 +24,7 @@ def getAllMysfits():
     # Mysfits API is low traffic and the table is very small, the scan operation
     # will suit our needs for this workshop.
     response = client.scan(
-        TableName='MysfitsTable'
+        TableName='MysfitsTableFinalProj'
     )
 
     logging.info(response["Items"])
@@ -49,7 +52,7 @@ def queryMysfits(queryParam):
     # Use the DynamoDB API Query to retrieve mysfits from the table that are
     # equal to the selected filter values.
     response = client.query(
-        TableName='MysfitsTable',
+        TableName='MysfitsTableFinalProj',
         IndexName=queryParam['filter']+'Index',
         KeyConditions={
             queryParam['filter']: {
@@ -75,6 +78,10 @@ def queryMysfits(queryParam):
         mysfitList["mysfits"].append(mysfit)
 
     return json.dumps(mysfitList)
+    
+    
+# Try use client.get_item    
+
 
 # Retrive a single mysfit from DynamoDB using their unique mysfitId
 def getMysfit(mysfitId):
@@ -83,7 +90,7 @@ def getMysfit(mysfitId):
     # a single item from a DynamoDB table using its unique key with super
     # low latency.
     response = client.get_item(
-        TableName='MysfitsTable',
+        TableName='MysfitsTableFinalProj',
         Key={
             'MysfitId': {
                 'S': mysfitId
@@ -105,8 +112,14 @@ def getMysfit(mysfitId):
     mysfit["profileImageUri"] = item["ProfileImageUri"]["S"]
     mysfit["likes"] = item["Likes"]["N"]
     mysfit["adopted"] = item["Adopted"]["BOOL"]
+    mysfit["adoptedunadopted"] = item["AdoptedUnadopted"]["S"]
+    mysfit["adoptiondate"] = item["AdoptionDate"]["S"]
+    mysfit["nickname"] = item["Nickname"]["S"]
 
     return json.dumps(mysfit)
+    
+    
+    
 
 # increment the number of likes for a mysfit by 1
 def likeMysfit(mysfitId):
@@ -114,7 +127,7 @@ def likeMysfit(mysfitId):
     # Use the DynamoDB API UpdateItem to increment the number of Likes
     # the mysfit has by 1 using an UpdateExpression.
     response = client.update_item(
-        TableName='MysfitsTable',
+        TableName='MysfitsTableFinalProj',
         Key={
             'MysfitId': {
                 'S': mysfitId
@@ -135,16 +148,20 @@ def adoptMysfit(mysfitId):
     # Use the DynamoDB API UpdateItem to set the value of the mysfit's
     # Adopted attribute to True using an UpdateExpression.
     response = client.update_item(
-        TableName='MysfitsTable',
+        TableName='MysfitsTableFinalProj',
         Key={
             'MysfitId': {
                 'S': mysfitId
             }
         },
-        UpdateExpression="SET Adopted = :b",
-        ExpressionAttributeValues={':b': {'BOOL': True}}
+        UpdateExpression="SET Adopted = :b, AdoptionDate = :s, AdoptedUnadopted = :n",
+        ExpressionAttributeValues={
+            ':b': {'BOOL': True},
+            ':s': {'S': date.today().strftime("%m/%d/%Y")},
+            ':n': {'S': "1"}
+        }
     )
-
+    
     response = {}
     response["Update"] = "Success";
 
