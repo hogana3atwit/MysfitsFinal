@@ -75,6 +75,13 @@
           <li class="nav-item " >
             <button type="button" class="btn btn-success" ng-click="removeFilter()">View All</button>
           </li>
+          <li class="nav-item " >
+          <input name="searchBar" id="searchBar" type="text" placeholder="Search..">
+          <button type="button" class="btn btn-success" ng-click="mysfitSearch()">Search</button>
+          </li>
+          <li>
+            <button type="button" class="btn btn-success" ng-click="allAdopted()">All Adopted</button>
+          </li>
         </ul>
       </div>
     </div>
@@ -130,10 +137,16 @@
             <p id="profileAge"><b>Age:</b> {{profileMysfit.age}}</p>
             <p id="profileDescription"><b>Description:</b> {{profileMysfit.description}}</p>
             <p id="profileLikes"><b>Likes:</b> {{profileMysfit.likes}}</p>
+            <p id="profileAdopted"><b>Adopted:</b> {{profileMysfit.adopted}}</p>
+            <p id="profileAdoptionDate"><b>Adoption Date:</b> {{profileMysfit.adoptiondate}}</p>
+            <p id="profileNickname"><b>Nickname:</b> {{profileMysfit.nickname}}</p>
+            <p>
+              <input name="nicknameBar" id="searchBar" type="text" placeholder="Enter Nickname..">
+              <button type="button" class="btn btn-success" ng-click="mysfitNickname(profileMysfit.mysfitId)">Submit</button>
+            </p>
             <p align="center">
               <button id="adoptButton" align="center" type="button" ng-click="adoptClicked(profileMysfit.mysfitId)" class="btn btn-primary">Adopt Me Now!</button>
               <button id="alreadyAdoptedButton" align="center" type="button" class="btn btn-primary d-none" disabled>Mysfit Adopted!</button>
-              <input type="text" id="adoptionDate" align="center" class="btn btn-primary d-none" disabled></input>
             </p>
           </div>
           <div class="modal-footer">
@@ -150,9 +163,9 @@
   </body>
   <script>
 
-    var mysfitsApiEndpoint = 'https://wyjcq4tei9.execute-api.us-east-1.amazonaws.com/prod'; // example: 'https://abcd12345.execute-api.us-east-1.amazonaws.com/prod'
-    var cognitoUserPoolId = 'us-east-1_oQbq6paBN';  // example: 'us-east-1_abcd12345'
-    var cognitoUserPoolClientId = '6md386bnedvn4koja90o3m16vd'; // example: 'abcd12345abcd12345abcd12345'
+    var mysfitsApiEndpoint = 'https://vtp1x5jrx7.execute-api.us-east-1.amazonaws.com/prod'; // example: 'https://abcd12345.execute-api.us-east-1.amazonaws.com/prod'
+    var cognitoUserPoolId = 'us-east-1_8zc1O1RnQ';  // example: 'us-east-1_abcd12345'
+    var cognitoUserPoolClientId = '7ulib1qi7c1pd4hek5upr6esbk'; // example: 'abcd12345abcd12345abcd12345'
     var awsRegion = 'us-east-1'; // example: 'us-east-1' or 'eu-west-1' etc.
 
     var app = angular.module('mysfitsApp', []);
@@ -164,12 +177,6 @@
     var profileScope;
 
     initializeStorage();
-
-    //ADOPTION DATE
-    var today=new Date();
-    var date=today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-      document.getElementById("adoptionDate").value=date;
-    
     
     var configString = localStorage.getItem("awsConfig");
     var config = JSON.parse(configString);
@@ -353,29 +360,69 @@
                "Neutral",
                "Chaotic"
              ]
+           },
+           {
+             "title": "Adopted/Unadopted",
+             "selections":  [
+               "Adopted",
+               "Unadopted"
+             ]
+           },
+           {
+             "title": "Mysfits",
+             "selections":  [
+               "CoCo",
+               "Hasla",
+               "Rujin",
+               "Atlantis",
+               "Gretta",
+               "Gary",
+               "Twilight Glitter",
+               "Evangeline",
+               "Nessi",
+               "Pauly",
+               "Snowflake",
+               "Cole"
+             ]
            }
          ]
        };
 
        $scope.removeFilter = function() {
          allMysfits = getAllMysfits(applyGridScope);
-       }
-
+       };
+       
+       $scope.allAdopted = function() {
+          getAdoptedMysfits(applyGridScope);  
+       };
+       
+       
        $scope.queryMysfits = function(filterCategory, filterValue) {
-
+          console.log(filterCategory);
+          console.log(filterValue);
            var filterCategoryQS = "";
            if (filterCategory==="Good/Evil") {
              filterCategoryQS = "GoodEvil";
+           } else if(filterCategory === "Mysfits") {
+             filterCategoryQS = "Name";
+           } else if(filterCategory === "Adopted/Unadopted") {
+             filterCategoryQS = "AdoptedUnadopted";
+             if(filterValue === "Adopted") {
+               filterValue = "1";
+             } else {
+               filterValue = "0";
+             }
            } else {
-             filterCategoryQS = "LawChaos"
+             filterCategoryQS = "LawChaos";
            }
            var mysfitsApi = mysfitsApiEndpoint + '/mysfits?' + 'filter=' + filterCategoryQS + "&value=" + filterValue;
+           console.log(mysfitsApi);
 
            $.ajax({
              url : mysfitsApi,
              type : 'GET',
              success : function(response) {
-               applyGridScope(response.mysfits)
+               applyGridScope(response.mysfits);
              },
              error : function(response) {
                console.log("could not retrieve mysfits list.");
@@ -384,8 +431,43 @@
                 }
              }
            });
-       }
+       };
 
+      $scope.mysfitSearch = function() {
+        //console.log("Clicked");
+        var txtValue = document.getElementById('searchBar').value;
+        //call to database to search for all possible mysfits- API call to replace with correct ID
+        //console.log(inputSearchID);
+        $scope.queryMysfits("Mysfits", txtValue);
+        //mysfitsTableClient(inputSearchID)
+     };
+     
+     var docClient = new AWS.DynamoDB.DocumentClient();
+     $scope.mysfitNickname = function(mysfitId) {
+       var table = "MysfitsTableFinalProj";
+       var txtValue = document.getElementById('nicknameBar').value;
+       
+       var params = {
+         TableName: table,
+         Key: {
+           "id": mysfitId
+         },
+         UpdateExpression: "set Nickname = :n",
+         ExpressionAttributeValues: {
+           ":n":txtValue
+         },
+       };
+       
+       docClient.update(params, function(err, data) {
+          if(err) {
+           document.getElementById('nicknameBar').innerHTML = "Unable to update item: " + "\n" + JSON.stringify(err, undefined, 2);
+          } else {
+           document.getElementById('nicknameBar').innerHTML = "UpdateItem succeeded: " + "\n" + JSON.stringify(data, undefined, 2);
+          }
+       });
+       
+       
+     };
 
 
     });
@@ -401,7 +483,7 @@
       $scope.likeClicked = function(mysfitId) {
         console.log("clicked: " + mysfitId);
         likeMysfit(mysfitId, updateLikeIcons);
-      }
+      };
 
     });
 
@@ -439,13 +521,11 @@
     function markAdopted() {
       $("#adoptButton").addClass("d-none");
       $("#alreadyAdoptedButton").removeClass("d-none");
-      $("#adoptionDate").removeClass("d-none");
     }
 
     function markNotAdopted() {
       $("#adoptButton").removeClass("d-none");
       $("#alreadyAdoptedButton").addClass("d-none");
-      $("#adoptionDate").addClass("d-none");
     }
 
     function updateLikeIcons(mysfitId) {
@@ -551,6 +631,25 @@
         }
       });
     }
+    
+    function getAdoptedMysfits(callback) {
+
+      var mysfitsApi = mysfitsApiEndpoint + '/mysfits';
+
+      $.ajax({
+        url : mysfitsApi,
+        type : 'GET',
+        success : function(response) {
+          callback(response.mysfits);
+        },
+        error : function(response) {
+          console.log("could not retrieve mysfits list.");
+          if (response.status == "401") {
+             refreshAWSCredentials();
+           }
+        }
+      });
+    }
 
     function getMysfit(mysfitId, callback) {
 
@@ -570,7 +669,6 @@
         }
       });
     }
-
-
+    
   </script>
 </html>
