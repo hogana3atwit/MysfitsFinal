@@ -70,6 +70,7 @@ Module 2: https://aws.amazon.com/getting-started/hands-on/build-modern-app-farga
 Replace the MysfitsAPI and User Pool links in the HTML with the appropriate addresses obtained from completing Modules 3 and 4 of Mythical Mysfits
 
 Module 3: https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/module-three/
+
 Module 4: https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/module-four/
 
 
@@ -78,6 +79,19 @@ Now, update the index.html content in your S3 bucket to display the new extended
 ```
   aws s3 cp ~/environment/aws-modern-application-workshop/module-4/web/index.html s3://REPLACE_ME_BUCKET_NAME/index.html
 ```
+
+The updated application should now be available at the following URL (excluding region us-east-2 Ohio):
+
+```
+  http://REPLACE_ME_BUCKET_NAME.s3-website-REPLACE_ME_YOUR_REGION.amazonaws.com
+```
+
+For us-east-2 (Ohio) use:
+
+```
+  http://REPLACE_ME_BUCKET_NAME.s3-website.REPLACE_ME_YOUR_REGION.amazonaws.com
+```
+
 
 ## Demo video
 
