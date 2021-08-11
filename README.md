@@ -32,6 +32,7 @@ To begin, sign in to the [AWS Console](https://console.aws.amazon.com) for the A
 3. Cloning the Mythical Mysfits Workshop Repository
 
 In the bottom panel of your new Cloud9 IDE, you will see a terminal command line terminal open and ready to use. If you close it or need a new one, use the *Window* > *New Terminal* menu.
+
 4. Creating a Static Website in Amazon S3
 
 Choose a name for your bucket and create it using the [```aws s3 mb```](https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html) command, replacing where indicated:
