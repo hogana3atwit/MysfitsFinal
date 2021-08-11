@@ -109,11 +109,13 @@ How to record your screen: https://www.techradar.com/how-to/record-your-screen
 
 ## References
 
-Provide links to all coding resources you used in your project. Note: if copy and paste is detected without citing the source, then 50% deduction on the final report!
+https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.html
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.JavaScript.html
 
 ## Team members
 
-* student name (email), role
-* student name (email), role
-* ...
-
+* Andrew Hogan (hogana3@wit.edu), Full-Stack Programming + DynamoDB Development 
+* David Edwards (edwardsd1@wit.edu), Front-End Programming + CloudWatch Development
