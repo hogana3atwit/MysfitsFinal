@@ -30,8 +30,13 @@ The main focus of this project is to expand and improve the Mythical Mysfits app
 
 To begin, sign in to the [AWS Console](https://console.aws.amazon.com) for the AWS account you will be using.
   
-#### 2. Creating your Mythical Mysifts IDE
+#### 2. Creating your Mythical Mysifts IDE:
+
+Follow the steps in Module 1 step 2A from AWS: https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/module-one/
+
 #### 3. Cloning the Mythical Mysfits Workshop Repository:
+
+Follow the steps in Module 1 Step 2B from AWS: https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/module-one/
 
 In the bottom panel of your new Cloud9 IDE, you will see a terminal command line terminal open and ready to use. If you close it or need a new one, use the       *Window* > *New Terminal* menu.
 
