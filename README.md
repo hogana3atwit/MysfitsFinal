@@ -47,7 +47,7 @@ Choose a name for your bucket and create it using the [```aws s3 mb```](https://
 ```
   aws s3 mb s3://REPLACE_ME_BUCKET_NAME
 ```
-#### 5. Copy the initial page of the Mystical Mysfits website (index.html) to your S3 bucket using the [aws s3 cp] command:
+#### 5. Copy the initial page of the Mythical Mysfits website (index.html) to your S3 bucket using the [aws s3 cp] command:
 
 ```
   aws s3 cp ~/environment/aws-modern-application-workshop/module-1/web/index.html s3://REPLACE_ME_BUCKET_NAME/index.html
