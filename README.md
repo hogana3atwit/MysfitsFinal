@@ -1,6 +1,6 @@
 # Mythical Mysfits Extension
 
-(10 pts) http://wit-cc-a5-edwardsd1.s3-website-us-east-1.amazonaws.com/
+Public Cloud URL: http://wit-cc-a5-edwardsd1.s3-website-us-east-1.amazonaws.com/
 
 ## Introduction
 
