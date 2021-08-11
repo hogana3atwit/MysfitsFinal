@@ -19,7 +19,7 @@ Refer to AWS Mythical Mysfits GitHub for existing features: https://github.com/d
 5. Nickname Input Box (in development)
 
 ## System Architecture
-Draw architecture diagrams of all services of your app and their relationships.
+![image](https://user-images.githubusercontent.com/43997359/129090306-c1eb7c7b-c018-4b60-a8a6-378f64f3a091.png)
 
 ## Deployment
 List the steps on how to deploy your app on the cloud.
