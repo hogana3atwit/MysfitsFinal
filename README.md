@@ -26,7 +26,7 @@ The main focus of this project is to expand and improve the Mythical Mysfits app
 ![image](https://user-images.githubusercontent.com/43997359/129091401-08dd10b0-e438-497e-b740-13d00a9914a7.png)
 
 ## Deployment
-1. Sign In to the AWS Console:
+#### 1. Sign In to the AWS Console:
 
   To begin, sign in to the [AWS Console](https://console.aws.amazon.com) for the AWS account you will be using.
   
