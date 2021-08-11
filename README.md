@@ -7,11 +7,11 @@
 Briefly describe what your app is all about.
 
 ## Features 
-# Existing Features
+### Existing Features
 
 Refer to AWS Mythical Mysfits GitHub for existing features: https://github.com/drphamwit/wit-cc-report-template/blob/master/README-Example.md
 
-# New Features
+### New Features
 1. Mysfit Adoption Anniversary
 2. Mysfit Dropdown Filter
 3. Mysfit Search Bar
