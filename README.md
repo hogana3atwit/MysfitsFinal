@@ -4,7 +4,7 @@ Public Cloud URL: http://wit-cc-a5-edwardsd1.s3-website-us-east-1.amazonaws.com/
 
 ## Introduction
 
-The main focus of this project is to expand and improve the Mythical Mysfits application from AWS with new features and services. Mythical Mysfits is a fictional pet adoption site composed of mythical creatures. The site allows users to interact with the mysfits on the site in several ways and this extension of the application adds even more functionality for mysfit interaction. AWS provides a step by step module-based tutorial for the application and it is an effective way to gain exposure to AWS services and resources by building the site up one piece at a time. The tutorial can be accessed here: https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/
+The main focus of this project is to expand and improve the Mythical Mysfits application from AWS with new features and services. Mythical Mysfits is a fictional pet adoption site composed of mythical creatures. The site allows users to interact with the mysfits on the site in several ways and this extension of the application adds even more functionality for mysfit interaction. AWS provides a step by step [module-based tutorial](https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/) for the application and it is an effective way to gain exposure to AWS services and resources by building the site up one piece at a time.
 
 ## Features 
 ### Existing Features
