@@ -28,15 +28,15 @@ The main focus of this project is to expand and improve the Mythical Mysfits app
 ## Deployment
 #### 1. Sign In to the AWS Console:
 
-    To begin, sign in to the [AWS Console](https://console.aws.amazon.com) for the AWS account you will be using.
+   To begin, sign in to the [AWS Console](https://console.aws.amazon.com) for the AWS account you will be using.
   
-2. Creating your Mythical Mysifts IDE
-3. Cloning the Mythical Mysfits Workshop Repository
+#### 2. Creating your Mythical Mysifts IDE
+#### 3. Cloning the Mythical Mysfits Workshop Repository:
 
   In the bottom panel of your new Cloud9 IDE, you will see a terminal command line terminal open and ready to use. If you close it or need a new one, use the       
   *Window* > *New Terminal* menu.
 
-4. Creating a Static Website in Amazon S3
+#### 4. Creating a Static Website in Amazon S3:
 
   Choose a name for your bucket and create it using the [```aws s3 mb```](https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html) command, replacing where   
   indicated:
@@ -44,13 +44,13 @@ The main focus of this project is to expand and improve the Mythical Mysfits app
 ```
   aws s3 mb s3://REPLACE_ME_BUCKET_NAME
 ```
-5. Copy the initial page of the Mystical Misfits website (index.html) to your S3 bucket using the [aws s3 cp] command:
+#### 5. Copy the initial page of the Mystical Misfits website (index.html) to your S3 bucket using the [aws s3 cp] command:
 
 ```
   aws s3 cp ~/environment/aws-modern-application-workshop/module-1/web/index.html s3://REPLACE_ME_BUCKET_NAME/index.html
 ```
 
-6. Update the S3 Bucket Policy
+#### 6. Update the S3 Bucket Policy:
 
   To serve as a public website, we can create an S3 [Bucket Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) that indicates  
   objects stored within this new bucket are publicly accessible. S3 Bucket Policies are represented as JSON documents that authorizes or denies the invocation of S3 
