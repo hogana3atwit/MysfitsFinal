@@ -68,6 +68,7 @@ Refer to the `MysfitsTableClient.py` and `MysfitsService.py` files in this repos
 Module 2: https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/module-two/
 
 Replace the MysfitsAPI and User Pool links in the HTML with the appropriate addresses obtained from completing Modules 3 and 4 of Mythical Mysfits
+
 Module 3: https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/module-three/
 Module 4: https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/module-four/
 
