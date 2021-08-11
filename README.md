@@ -1,17 +1,22 @@
-# Your project name
+# Mythical Mysfits Extension
 
-(10 pts) Your cloud app public url.
+(10 pts) http://wit-cc-a5-edwardsd1.s3-website-us-east-1.amazonaws.com/
 
 ## Introduction (10 pts)
 
 Briefly describe what your app is all about.
 
 ## Features (10 pts)
-List all the features of your app
-1. Feature #1
-2. Feature #2
-3. Feature #3 
-4. ...
+#Existing Features
+
+Refer to AWS Mythical Mysfits GitHub for existing features: https://github.com/drphamwit/wit-cc-report-template/blob/master/README-Example.md
+
+#New Features
+1. Mysfit Adoption Anniversary
+2. Mysfit Dropdown Filter
+3. Mysfit Search Bar
+4. Adopted/Unadopted Filter
+5. Nickname Input Box (in development)
 
 ## System Architecture (10 pts)
 Draw architecture diagrams of all services of your app and their relationships.
