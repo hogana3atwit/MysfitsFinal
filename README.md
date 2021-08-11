@@ -81,7 +81,7 @@ Now, update the index.html content in your S3 bucket to display the new extended
   aws s3 cp ~/environment/aws-modern-application-workshop/module-4/web/index.html s3://REPLACE_ME_BUCKET_NAME/index.html
 ```
 
-### 8. Display the Updated Site
+#### 8. Display the Updated Site
 The updated application should now be available at the following URL (excluding region us-east-2 Ohio):
 
 ```
