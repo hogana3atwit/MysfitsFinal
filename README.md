@@ -55,11 +55,28 @@ Choose a name for your bucket and create it using the [```aws s3 mb```](https://
 
 #### 6. Update the S3 Bucket Policy:
 
-  To serve as a public website, we can create an S3 [Bucket Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) that indicates  
-  objects stored within this new bucket are publicly accessible. S3 Bucket Policies are represented as JSON documents that authorizes or denies the invocation of S3 
-  *Actions* (S3 API calls) to *Principals* (in our public example case, anyone). 
+To serve as a public website, we can create an S3 [Bucket Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html) that indicates  objects stored within this new bucket are publicly accessible. S3 Bucket Policies are represented as JSON documents that authorizes or denies the invocation of S3 *Actions* (S3 API calls) to *Principals* (in our public example case, anyone). 
 
 The JSON document for the necessary bucket policy is located at: `~/environment/aws-modern-application-workshop/module-1/aws-cli/website-bucket-policy.json`.  This file contains a string that needs to be replaced with the bucket name you've chosen (indicated with `REPLACE_ME_BUCKET_NAME`).
+
+#### 7. Update the application page with the extended features:
+
+Copy the index.html file found in this project into your own Module 4 index.html file in Cloud9
+
+Refer to the `MysfitsTableClient.py` and `MysfitsService.py` files in this repository before completing Modules 3 and 4 as well as following the steps in Module 2 step 2B to manually deploy the application production files (if on AWS Educate):
+
+Module 2: https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/module-two/
+
+Replace the MysfitsAPI and User Pool links in the HTML with the appropriate addresses obtained from completing Modules 3 and 4 of Mythical Mysfits
+Module 3: https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/module-three/
+Module 4: https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/module-four/
+
+
+Now, update the index.html content in your S3 bucket to display the new extended application using the following command:
+
+```
+  aws s3 cp ~/environment/aws-modern-application-workshop/module-4/web/index.html s3://REPLACE_ME_BUCKET_NAME/index.html
+```
 
 ## Demo video
 
