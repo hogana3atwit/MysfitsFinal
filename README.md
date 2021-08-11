@@ -28,7 +28,7 @@ The main focus of this project is to expand and improve the Mythical Mysfits app
 ## Deployment
 #### 1. Sign In to the AWS Console:
 
-  To begin, sign in to the [AWS Console](https://console.aws.amazon.com) for the AWS account you will be using.
+    To begin, sign in to the [AWS Console](https://console.aws.amazon.com) for the AWS account you will be using.
   
 2. Creating your Mythical Mysifts IDE
 3. Cloning the Mythical Mysfits Workshop Repository
