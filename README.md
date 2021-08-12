@@ -97,15 +97,9 @@ For us-east-2 (Ohio) use:
 
 ## Demo video
 
-Upload your demo video to youtube and put a link here. Basically, the video content is very much like the quick live demo of your app with the followings:
-1. Introduction
-3. Quick walkthrough of all the features of your app one by one
+Extended Features Demo: https://www.youtube.com/watch?v=zQDj-nubkX8
 
-Make it short and interesting (1-3 minutes)
-
-Sample: https://www.youtube.com/watch?v=Pr-JMqTkdEM
-
-How to record your screen: https://www.techradar.com/how-to/record-your-screen
+CloudWatch Dashboard Demo:
 
 ## References
 
