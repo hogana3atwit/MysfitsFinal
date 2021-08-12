@@ -104,13 +104,13 @@ For us-east-2 (Ohio) use:
 
 ### CloudWatch Deployment (2/2)
 
-#### The other way of deploying your dashboards is through automation by adding the following code surrounding the dashboard objects/widgets and replacing the access and secret key fields with your corresponding IAM ones.
+#### The other way of deploying your dashboards is through automation by adding the following code surrounding the dashboard objects/widgets and replacing the "here" fields with your own corresponding ones.
 
 ```
 provider "aws" {
 access_key = "access_key_here"
 secret_key = "secret_key_here"
-region = "region here
+region = "region_here"
 }
 resource "aws_cloudwatch_dashboard" "main" {
   dashboard_name = "dashboard_name_here "
