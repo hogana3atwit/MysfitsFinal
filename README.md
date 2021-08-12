@@ -148,6 +148,8 @@ https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.
 
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.JavaScript.html
 
+https://registry.terraform.io/providers/hashicorp/aws/latest
+
 ## Team members
 
 * Andrew Hogan (hogana3@wit.edu), Full-Stack Programming + DynamoDB Development 
