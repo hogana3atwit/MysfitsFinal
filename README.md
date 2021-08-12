@@ -111,7 +111,7 @@ provider "aws" {
 access_key = "access_key_here"
 secret_key = "secret_key_here"
 region = "region here
-
+}
 resource "aws_cloudwatch_dashboard" "main" {
   dashboard_name = "dashboard_name_here "
 
