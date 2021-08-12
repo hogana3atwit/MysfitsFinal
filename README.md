@@ -75,10 +75,10 @@ Module 3: https://aws.amazon.com/getting-started/hands-on/build-modern-app-farga
 Module 4: https://aws.amazon.com/getting-started/hands-on/build-modern-app-fargate-lambda-dynamodb-python/module-four/
 
 
-Now, update the index.html content in your S3 bucket to display the new extended application using the following command:
+Now, update the HTML content in your S3 bucket to display the new extended application using the following command:
 
 ```
-  aws s3 cp ~/environment/aws-modern-application-workshop/module-4/web/index.html s3://REPLACE_ME_BUCKET_NAME/index.html
+  aws s3 cp --recursive ~/environment/aws-modern-application-workshop/module-4/web/ s3://REPLACE_ME_BUCKET_NAME/
 ```
 
 #### 8. Display the Updated Site
