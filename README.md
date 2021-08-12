@@ -99,7 +99,7 @@ For us-east-2 (Ohio) use:
 
 Extended Features Demo: https://www.youtube.com/watch?v=zQDj-nubkX8
 
-CloudWatch Dashboard Demo:
+CloudWatch Dashboard Demo: https://youtu.be/stnpnAa0NaE
 
 ## References
 
