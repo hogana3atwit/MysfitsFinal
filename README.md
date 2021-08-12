@@ -93,8 +93,47 @@ For us-east-2 (Ohio) use:
 ```
   http://REPLACE_ME_BUCKET_NAME.s3-website.REPLACE_ME_YOUR_REGION.amazonaws.com
 ```
+### CloudWatch Deployment (1/2)
+#### 1. Go to Cloudwatch in the AWS console
 
+#### 2. Click on "Dashboards" on the right panel
 
+#### 3. "Create a New Dashboard" and name it then cancel out of the autmotic widget popup.
+
+#### 4. Click the "Actions" Dropdown menu and go to "View/edit source" and either copy/paste the cloudwatch Terraform in the project for the respective dashboard (with appropriate changed according to your enviornmentor place you own code there. Then click update and your all set.
+
+### CloudWatch Deployment (2/2)
+
+#### The other way of deploying your dashboards is through automation by adding the following code surrounding the dashboard objects/widgets and replacing the access and secret key fields with your corresponding IAM ones.
+
+```
+provider "aws" {
+access_key = "access_key_here"
+secret_key = "secret_key_here"
+region = "region here
+
+resource "aws_cloudwatch_dashboard" "main" {
+  dashboard_name = "dashboard_name_here "
+
+  dashboard_body = <<EOF
+  {
+
+/* Widget Parameters */
+
+  }
+  EOF
+}
+```
+### Then type in order
+```
+terraform init
+```
+```
+terraform plan
+```
+```
+terraform apply
+```
 ## Demo video
 
 Extended Features Demo: https://www.youtube.com/watch?v=zQDj-nubkX8
