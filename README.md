@@ -100,7 +100,7 @@ For us-east-2 (Ohio) use:
 
 #### 3. "Create a New Dashboard" and name it then cancel out of the automatic widget popup.
 
-#### 4. Click the "Actions" dropdown menu and go to "View/edit source" then either copy/paste the cloudwatch Terraform in the project for the respective dashboard (with appropriate changes according to your region/enviornemnt naming changes) or place you own code there. Then click update and your all set.
+#### 4. Click the "Actions" dropdown menu and go to "View/edit source" then either copy/paste the cloudwatch Terraform in the project for the respective dashboard (with appropriate changes according to your region/enviornemnt naming changes) or place you own code there. Lastly, click update and your all set.
 
 ### CloudWatch Deployment (2/2)
 
